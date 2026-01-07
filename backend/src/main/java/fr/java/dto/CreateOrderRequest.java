@@ -1,16 +1,15 @@
-package fr.java.dto;
+package fr.java.api.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateOrderRequest {
     public String customerRef;
-    public List<Item> items;
+    public List<Item> items = new ArrayList<>();
 
     public static class Item {
-    public int dishId;
-    public int quantity;
-    // Remplace Map<String, String> par Object ou List
-    // Pour ne plus avoir d'erreur, utilise List si ton frontend envoie []
-    public List<Object> options; 
-}
+        public int dishId;
+        public int quantity;
+        public List<String> options = new ArrayList<>(); // ex: "spice:Moyen", "side:Riz"
+    }
 }
