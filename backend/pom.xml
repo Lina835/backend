@@ -46,7 +46,7 @@
 
   <build>
     <plugins>
-      <!-- Pour lancer facilement -->
+  
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>

@@ -17,18 +17,18 @@ public class Main {
         MySqlStore store = new MySqlStore();
 
         Javalin app = Javalin.create(config -> {
-            // ✅ CORS Javalin 6
+            // CORS Javalin 6
             config.bundledPlugins.enableCors(cors -> cors.addRule(it -> it.anyHost()));
         });
 
-        // health check
+        // check
         app.get("/", ctx -> ctx.result("API OK"));
 
-        // ✅ GET /categories
+        // GET /categories
         app.get("/categories", ctx -> {
             List<Category> cats = store.getCategories();
 
-            // IMPORTANT : on renvoie un JSON simple {id,name}
+            // on renvoie un JSON simple {id,name}
             List<Object> out = new ArrayList<>();
             for (Category c : cats) {
                 out.add(new SimpleCategory(c.id, c.name));
@@ -36,14 +36,14 @@ public class Main {
             ctx.json(out);
         });
 
-        // ✅ GET /categories/:id/dishes
+        // GET /categories/:id/dishes
         app.get("/categories/{id}/dishes", ctx -> {
             int categoryId = Integer.parseInt(ctx.pathParam("id"));
             List<Dish> dishes = store.getDishesByCategory(categoryId);
-            ctx.json(dishes); // Dish Modelio est déjà OK (champs simples)
+            ctx.json(dishes); // Dish Modelio est déjà OK 
         });
 
-        // ✅ POST /orders
+        // POST /orders
         app.post("/orders", ctx -> {
             CreateOrderRequest req = ctx.bodyAsClass(CreateOrderRequest.class);
 
@@ -73,7 +73,7 @@ public class Main {
                 line.quantity = qty;
                 line.unitPrice = dish.price;
 
-                // options: ["spice:Moyen","side:Riz"] => (name,value)
+                // options
                 if (it.options != null) {
                     for (String s : it.options) {
                         if (s == null) continue;

@@ -10,6 +10,6 @@ public class CreateOrderRequest {
     public static class Item {
         public int dishId;
         public int quantity;
-        public List<String> options = new ArrayList<>(); // ex: "spice:Moyen", "side:Riz"
+        public List<String> options = new ArrayList<>(); // ex: "spice:Moyen", "accompagn:Riz"
     }
 }

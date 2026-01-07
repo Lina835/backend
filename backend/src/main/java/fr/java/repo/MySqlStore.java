@@ -100,7 +100,7 @@ public class MySqlStore {
         }
     }
 
-    // ---------- CREATE ORDER ----------
+    // ---------- CREATION COMMANDE ----------
     public int createOrder(String customerRef, List<OrderLine> lines) {
         String insertOrder = "INSERT INTO orders(customer_ref, total, created_at) VALUES (?, ?, ?)";
         String insertItem  = "INSERT INTO order_item(order_id, dish_id, quantity, unit_price) VALUES (?, ?, ?, ?)";
@@ -126,7 +126,7 @@ public class MySqlStore {
                 }
             }
 
-            // items
+            // produit (item)
             for (OrderLine l : lines) {
                 int orderItemId;
                 try (PreparedStatement ps = c.prepareStatement(insertItem, Statement.RETURN_GENERATED_KEYS)) {
@@ -142,7 +142,7 @@ public class MySqlStore {
                     }
                 }
 
-                // options (si tu veux les stocker)
+                // options 
                 for (Option o : l.options) {
                     try (PreparedStatement ps = c.prepareStatement(insertOpt)) {
                         ps.setInt(1, orderItemId);
@@ -161,7 +161,6 @@ public class MySqlStore {
         }
     }
 
-    // ---------- Petites classes internes ----------
     public static class OrderLine {
         public int dishId;
         public int quantity;

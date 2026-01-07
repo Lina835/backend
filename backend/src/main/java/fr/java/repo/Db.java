@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Db {
 
-    // ✅ Modifie ces valeurs selon ton XAMPP / MySQL
+    // connexion avec la base de donnée(mysql)
      private static final String URL =
     "jdbc:mysql://localhost:3306/java_restau_clean?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
