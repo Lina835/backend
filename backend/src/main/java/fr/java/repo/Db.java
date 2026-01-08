@@ -1,4 +1,4 @@
-package fr.java.data;
+package fr.java.repo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
