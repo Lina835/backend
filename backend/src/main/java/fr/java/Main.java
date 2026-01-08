@@ -2,9 +2,9 @@ package fr.java;
 
 import fr.java.api.dto.CreateOrderRequest;
 import fr.java.api.dto.CreateOrderResponse;
-import fr.java.data.MySqlStore;
 import fr.java.model.Category;
 import fr.java.model.Dish;
+import fr.java.repo.MySqlStore;
 import io.javalin.Javalin;
 
 import java.util.ArrayList;

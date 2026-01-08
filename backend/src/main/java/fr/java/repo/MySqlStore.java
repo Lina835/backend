@@ -1,4 +1,4 @@
-package fr.java.data;
+package fr.java.repo;
 
 import fr.java.model.Category;
 import fr.java.model.Dish;
